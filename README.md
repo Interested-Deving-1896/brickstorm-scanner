@@ -1,61 +1,29 @@
-# BRICKSTORM Indicator of Compromise Scanner
+[update-readmes]   Mode: rewrite — migrating to template structure...
+# brickstorm-scanner
 
-This repository contains a utility for detecting potential BRICKSTORM backdoor
-compromises on Linux and BSD-based appliances and systems.
+[![Built with Ona](https://ona.com/build-with-ona.svg)](https://app.ona.com/#https://github.com/Interested-Deving-1896/brickstorm-scanner)
 
-This script is designed to replicate the logic of a specific YARA rule on
-systems where YARA is not available or practical to run. To learn more about the
-BRICKSTORM campaign, UNC5221, and closely related suspected China-nexus threat clusters, please read our full blog
-post:
-https://cloud.google.com/blog/topics/threat-intelligence/brickstorm-espionage-campaign
+<!-- AI:start:what-it-does -->
+_Description pending._
+<!-- AI:end:what-it-does -->
 
-In summary, the utility will:
+## Architecture
 
-- Do a best-effort job at identifying files that match a known BRICKSTORM signature.
-- Scan specified files or recursively scan entire directories.
+<!-- AI:start:architecture -->
+_Architecture documentation pending._
+<!-- AI:end:architecture -->
 
-It will not:
+## Install
 
-- Identify a compromise 100% of the time.
-- Detect _all_ variants of BRICKSTORM (it is specific to one YARA rule).
-- Tell you if a device is vulnerable to exploitation.
-- Scan for other IOCs like logs, processes, or persistence mechanisms.
+<!-- Add installation instructions here. This section is yours — the AI will not modify it. -->
 
-With community feedback, the tool may become more thorough in its detection.
-Please [open an issue](https://github.com/mandiant/brickstorm-scanner/issues), or [submit a PR](https://github.com/mandiant/brickstorm-scanner/pulls), if you
-have problems, ideas, or feedback.
-
-If you believe you have a true positive match, you can contact Mandiant at investigations at mandiant dot com for more assistance. 
-
-## Features
-
-This scanner replicates the YARA rule `G_APT_Backdoor_BRICKSTORM_3`
-by checking for three conditions in a given file. A file is only flagged as a
-"MATCH" if **all** conditions are met:
-
-1. **ELF File Header**: Checks that the file is a valid ELF binary.
-1. **Required Strings**: Greps the binary for a set of required ASCII and wide
-  (UTF-16LE) strings, including `regex, mime, decompress, MIMEHeader, ResolveReference`, and a specific large number.
-1. **Hex Pattern**: Performs a hex dump (`xxd`) and searches for a specific 25-byte hex pattern associated with the malware.
-
-## Details
-
-The Indicator of Compromise (IoC) Scanner for BRICKSTORM was developed by
-Mandiant based on knowledge gleaned from incident response engagements. The goal
-of the scanner is to analyze files for evidence of this specific malware. There
-are limitations in what the tool will be able to accomplish, and therefore,
-executing the tool should not be considered a guarantee that a system is free of
-compromise. For example, an attacker may have tampered with the system, or
-deployed a variant not covered by this specific rule.
-
-This tool is not guaranteed to find all evidence of compromise, or all evidence
-of compromise related to BRICKSTORM. If indications of compromise are identified
-on systems, organizations should perform a forensic examination of the
-compromised system to determine the scope and extent of the incident. This
-software is provided as-is, without warranty or representation for any use or
-purpose.
+```bash
+git clone https://github.com/Interested-Deving-1896/brickstorm-scanner.git
+cd brickstorm-scanner
+```
 
 ## Usage
+
 
 You can download the standalone Bash script (`find_brickstorm.sh`) directly
 from this repository.
@@ -107,3 +75,51 @@ For additional information from Mandiant and Google Threat Intelligence Group (G
 exploitation, please see:
 
 - https://cloud.google.com/blog/topics/threat-intelligence/brickstorm-espionage-campaign - Published on September 24, 2025
+
+## Configuration
+
+<!-- Document configuration options here. This section is yours — the AI will not modify it. -->
+
+## CI
+
+<!-- AI:start:ci -->
+_CI documentation pending._
+<!-- AI:end:ci -->
+
+## Mirror chain
+
+<!-- AI:start:mirror-chain -->
+This repo is maintained in [`Interested-Deving-1896/brickstorm-scanner`](https://github.com/Interested-Deving-1896/brickstorm-scanner) and mirrored through:
+
+```
+Interested-Deving-1896/brickstorm-scanner  ──►  OpenOS-Project-OSP/brickstorm-scanner  ──►  OpenOS-Project-Ecosystem-OOC/brickstorm-scanner
+```
+
+Changes flow downstream automatically via the hourly mirror chain in
+[`fork-sync-all`](https://github.com/Interested-Deving-1896/fork-sync-all).
+Direct commits to OSP or OOC are detected and opened as PRs back to `Interested-Deving-1896`.
+<!-- AI:end:mirror-chain -->
+
+## Contributors
+
+<!-- AI:start:contributors -->
+_Contributors pending._
+<!-- AI:end:contributors -->
+
+## Origins
+
+<!-- AI:start:origins -->
+_Original project — no upstream fork._
+<!-- AI:end:origins -->
+
+## Resources
+
+<!-- AI:start:resources -->
+_No additional resource files found._
+<!-- AI:end:resources -->
+
+## License
+
+<!-- AI:start:license -->
+<!-- License not detected — add a LICENSE file to this repo. -->
+<!-- AI:end:license -->
